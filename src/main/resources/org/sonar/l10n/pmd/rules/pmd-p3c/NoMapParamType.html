@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>author</title>
+</head>
+
+<body>
+
+<p><b>author: 吴平福 wupf@asiainfo.com</b><br>
+    禁止使用MAP类型作为参数<br>
+<br>
+案例：<br>
+大量开发人员在开发服务接口时，使用Map作为出参和入参，导致接口自测、运维、后续开发非常困难<br>
+<br>
+错误写法
+<br>
+  private static final Logger logger = LoggerFactory.getLogger(EnquiryApproveController.class);<br>
+    @ResponseBody<br>
+    @RequestMapping(value = "/submitSales",method = RequestMethod.POST)<br>
+    @ApiOperation(value = "审批提交", httpMethod = "POST")<br>
+    public Response<SaveSalesVO> submitSales(@RequestBody Map reqMap, Principal principal)<br>
+<br>
+正确写法<br>
+ @RequestMapping("findSaleTaskDistArea")<br>
+    public BaseResponse<List<SaleTaskDistAreaVO>> findSaleTaskDistArea(@RequestBody SaleTaskDistAreaRequst request)<br>
+提出部门：COMS<br>
+</p>
+
+</body>
+
+</html>

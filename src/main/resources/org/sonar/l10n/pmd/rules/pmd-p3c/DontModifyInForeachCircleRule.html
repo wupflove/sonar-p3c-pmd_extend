@@ -1,0 +1,36 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>author</title>
+</head>
+
+<body>
+
+<p><b>author: 吴平福 wupf@asiainfo.com</b><br>
+    在循环变量中对LIST对象进行REMOVE或ADD操作<br>
+<br>
+案例：<br>
+2015年9月，陕西j2ee项目中，在循环取值判断产品元素时，因为进行元素遍历删除导致产品组件报错，影响开户，产品变更等核心业务<br>
+在循环变量中对LIST对象进行REMOVE或ADD操作，会导致数组长度变更，以致业务逻辑出错。 <br>
+元素删除后list.size()会变<br>
+<br>
+IDataset list=new DatasetList();<br>
+for(int i=0;i&lt;list.size();i++)<br>
+{<br>
+list.remove(i);<br>
+}<br>
+for (Iterator&lt;String&gt; ite = list.iterator(); ite.hasNext();) {<br>
+String str = ite.next();<br>
+System.out.println(str);<br>
+if (str.contains(&quot;&quot;b&quot;&quot;)) {<br>
+ite.remove();<br>
+}<br>
+}<br>
+<br>
+提出者：蔡宇<br>
+</p>
+
+</body>
+
+</html>

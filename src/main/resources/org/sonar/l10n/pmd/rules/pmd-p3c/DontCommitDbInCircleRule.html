@@ -1,0 +1,47 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>author</title>
+</head>
+
+<body>
+
+<p><b>author: 吴平福 wupf@asiainfo.com</b><br>
+    禁止在循环中提交数据库操作<br>
+<br>
+案例：<br>
+云南当时一后台任务，大批量的处理数据，频繁提交任务，导致系统中大量的等待REDOLOG的事件，造成系统CPU/IO都比较繁忙<br>
+大批量操作未做分批commit<br>
+
+说明<br>
+对于后台批量作业，频繁的COMMIT会引起大量Redo Log的物理I/O，会极大的限制数据库的性能，<br>
+可根据实际业务需要以及当前主机性能参数，分批提交事务（如: 1K-3K为一批次进行分段COMMIT），<br>
+这样即可提高业务逻辑处理性能，还能及时释放占用的资源。<br>
+错误代码实例<br>
+BEGIN<br>
+       FOR cur IN (SELECT * FROM t_ref) LOOP<br>
+         INSERT INTO t VALUES cur;<br>
+       COMMIT;<br>
+      END LOOP;<br>
+ END;<br>
+ 
+ 正确代码实例<br>
+ v_count NUMBER;<br>
+BEGIN<br>
+ FOR cur IN (SELECT * FROM t_ref) LOOP<br>
+   INSERT INTO t VALUES cur;<br>
+   v_count := v_count + 1;<br>
+   IF v_count >= 100 THEN<br>
+     COMMIT;<br>
+   END IF;<br>
+ END LOOP;<br>
+ COMMIT;<br>
+END;<br>
+<br>
+提出者：通用<br>
+</p>
+
+</body>
+
+</html>

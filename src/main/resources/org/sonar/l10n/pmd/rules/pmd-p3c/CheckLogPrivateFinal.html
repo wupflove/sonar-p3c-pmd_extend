@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>author</title>
+</head>
+
+<body>
+
+<p><b>author: 吴平福 wupf@asiainfo.com</b><br>
+    LOGGER对象申明修饰符必须是 private static final<br>
+<br>
+案例：<br>
+浙江CRM系统中心化项目组，在迁移代码的过程中很多Log的误用，导致后来在定位问题的时候比较困难。代码规范<br>
+说明<br>
+没有使用final定义Log变量，后续log对象被修改，导致打印出的日志信息有误<br>
+影响范围<br>
+导致在跟踪日志的时候找不到日志或者找到的日志有问题，有产生误导。如果不适用final关键字可能会导致线程不安全，影响对象序列化<br>
+<br>
+错误代码实例<br>
+public class MsgProducerSVImpl implements IMsgProducerSV {<br>
+
+    private static transient Log log = LogFactory.getLog(Order2BillingSVImpl.class);<br>
+ 正确代码实例<br>
+ public class MsgProducerSVImpl implements IMsgProducerSV {<br>
+
+    private final static transient Log log = LogFactory.getLog(Order2BillingSVImpl.class);<br>
+<br>
+提出部门：南研<br>
+</p>
+
+</body>
+
+</html>
