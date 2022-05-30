@@ -3,7 +3,7 @@
 #sonar-p3c-pmd_extend
 sonar-p3c-pmd 扩展
 
-# wupf@asiainfo.com
+# 421722623@qq.com
 
 # 当前支持P3C版本1.3.4 ，SONAR-PMD-PLUGIN版本 2.6
 

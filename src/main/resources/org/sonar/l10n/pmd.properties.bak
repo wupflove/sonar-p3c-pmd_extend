@@ -361,11 +361,11 @@ rule.pmd-unit-tests.JUnit4TestShouldUseTestAnnotation.name=JUnit4 Test Should Us
 rule.pmd-unit-tests.JUnitUseExpected.name=JUnit Use Expected
 
 #wupf
-rule.pmd.CheckLogPrivateFinal.name=[AsiaInfo]CheckLogPrivateFinal
-rule.pmd.NoMapParamType.name=[AsiaInfo]NoMapParamType
-rule.pmd.DontModifyInForeachCircleRule.name=[AsiaInfo]DontModifyInForeachCircleRule.
-rule.pmd.DontNewDbConnInCircleRule.name=[AsiaInfo]DontNewDbConnInCircleRule.
-rule.pmd.DontCommitDbInCircleRule.name=[AsiaInfo]DontCommitDbInCircleRule.
+rule.pmd.CheckLogPrivateFinal.name=[WuPingFu]CheckLogPrivateFinal
+rule.pmd.NoMapParamType.name=[WuPingFu]NoMapParamType
+rule.pmd.DontModifyInForeachCircleRule.name=[WuPingFu]DontModifyInForeachCircleRule.
+rule.pmd.DontNewDbConnInCircleRule.name=[WuPingFu]DontNewDbConnInCircleRule.
+rule.pmd.DontCommitDbInCircleRule.name=[WuPingFu]DontCommitDbInCircleRule.
 
 ##p3c##
 #AlibabaJavaComments
